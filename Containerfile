@@ -1,6 +1,10 @@
 FROM quay.io/toolbx/arch-toolbox:latest
 
 # TODO Consolidate RUNs.
+# Add builder user.
+RUN useradd -m -G wheel builder \
+	&& passwd -d builder \
+	&& echo 'builder ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 
 # Basics & System Tools
 RUN pacman -Syu --noconfirm \
@@ -8,11 +12,10 @@ RUN pacman -Syu --noconfirm \
 	base-devel
 
 # Build and install Yay
-RUN mkdir -p /tmp \
-	&& cd /tmp \
-	&& git clone https://aur.archlinux.org/yay.git \
-	&& cd /tmp/yay \
-	&& makepkg -si
+RUN mkdir -p /tmp/yay-build \
+	&& chown -R builder:builder /tmp/yay-build \
+	&& su - builder -c "git clone https://aur.archlinux.org/yay.git /tmp/yay-build/yay" \
+	&& su - builder -c "cd /tmp/yay-build/yay && makepkg -si --noconfirm"
 
 # Web Dev Tools
 RUN pacman -Syu --noconfirm \
