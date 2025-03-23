@@ -27,10 +27,8 @@ RUN npm install -g \
 	yarn \
 	pnpm
 
-# Install Rustup and toolchain.
-RUN pacman -Syu --noconfirm \
-	rustup \
-	&& rustup default stable
+# Install Rustup.
+RUN pacman -Syu --noconfirm rustup
 
 # Clean up
 # TODO Clean Pacman cache
