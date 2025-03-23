@@ -8,7 +8,7 @@ RUN pacman -Syu --noconfirm \
 	base-devel
 
 # Build and install Yay
-RUN mkdir /tmp \
+RUN mkdir -p /tmp \
 	&& cd /tmp \
 	&& git clone https://aur.archlinux.org/yay.git \
 	&& cd /tmp/yay \
@@ -31,4 +31,4 @@ RUN pacman -Syu --noconfirm \
 
 # Clean up
 # TODO Clean Pacman cache
-RUN rm -rf /tmp
+RUN rm -rf /tmp/*
