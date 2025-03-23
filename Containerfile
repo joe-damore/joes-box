@@ -1,7 +1,7 @@
 FROM quay.io/toolbx/arch-toolbox:latest
 
 # Web Dev Tools
-RUN pacman -S --no-confirm \
+RUN pacman -S --noconfirm \
 	nodejs-lts-jod \
 	npm
 
