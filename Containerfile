@@ -30,6 +30,18 @@ RUN npm install -g \
 # Install Rustup.
 RUN pacman -Syu --noconfirm rustup
 
+# Install Slint dependencies.
+# https://github.com/slint-ui/slint/blob/master/docs/building.md#prerequisites
+RUN pacman -Syu --noconfirm \
+	libinput \
+	libxcb \
+	libxkbcommon \
+	fontconfig \
+	clang \
+	ffmpeg \
+	alsa-lib \
+	pkgconf
+
 # Clean up
 # TODO Clean Pacman cache
 RUN rm -rf /tmp/*
