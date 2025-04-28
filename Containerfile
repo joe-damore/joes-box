@@ -27,6 +27,10 @@ RUN npm install -g \
 	yarn \
 	pnpm
 
+# Deno
+RUN pacman -Syu --noconfirm \
+	deno
+
 # Install Rustup.
 RUN pacman -Syu --noconfirm rustup
 
