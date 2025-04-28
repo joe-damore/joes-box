@@ -49,3 +49,7 @@ RUN pacman -Syu --noconfirm \
 # Clean up
 # TODO Clean Pacman cache
 RUN rm -rf /tmp/*
+
+# Copy custom scripts
+COPY scripts/export-helper.sh /usr/bin/export-helper
+RUN chmod +x /usr/bin/export-helper
