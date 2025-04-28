@@ -9,7 +9,7 @@ To create a distrobox, run the following command:
 distrobox create --pull --image ghcr.io/joe-damore/joes-box-arch
 ```
 
-You may optionally assign a name to the distrobox using the `--name` flag, e.g.:
+You may optionally assign a name to the box using the `--name` flag, e.g.:
 
 ```bash
 distrobox create --pull --image ghcr.io/joe-damore/joes-box-arch --name mybox
@@ -30,7 +30,7 @@ The following tools get exported by the script:
 - `pnpm`
 - `yarn`
 
-Alternatively, you can manually export your desired tools using [`distrobox-export`](https://distrobox.it/usage/distrobox-export/), e.g.:
+Alternatively, you can manually export your desired tools using [`distrobox-export`](https://distrobox.it/usage/distrobox-export/) from inside the box, e.g.:
 
 ```bash
 distrobox-export --bin /usr/bin/node
