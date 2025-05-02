@@ -46,6 +46,9 @@ RUN pacman -Syu --noconfirm \
 	alsa-lib \
 	pkgconf
 
+# Install SQLite library and CLI tool.
+RUN pacman -Syu --noconfirm sqlite
+
 # Clean up
 # TODO Clean Pacman cache
 RUN rm -rf /tmp/*
